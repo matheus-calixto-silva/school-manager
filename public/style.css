@@ -2,11 +2,13 @@
 
 :root{
   --primary-color: #7159C1;
+  --secondary-color: #F7DF1E;
 }
 
 *{
   margin: 0;
   padding: 0;
+  border: 0;
   box-sizing: border-box;
 }
 
@@ -56,7 +58,7 @@ header{
 
 .card{
   width: 800px;
-  height: 400px;
+  min-height: 400px;
   background-color: #FFF;
   margin: 45px auto;
   display: grid;
@@ -78,4 +80,57 @@ header{
   to{
     opacity: 1;
   }
+}
+
+/*=== DETAILS ===*/
+
+.details{
+  padding: 32px;
+}
+
+.details h3:first-child{
+  margin-bottom: 16px;
+}
+
+.details .item{
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  width: 100%;
+}
+
+.item{
+  padding: 16px 0;
+}
+
+.details h3,
+.details .item div:nth-child(1){
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 24px;
+  color: #777;
+  letter-spacing: 0.7px;
+}
+
+.details .item div:nth-child(2){
+  font-size: 18px;
+  font-weight: bold;
+  color: #555;
+}
+
+.details h3{
+  text-transform: uppercase;
+  font-weight: bold;
+  color: var(--primary-color);
+}
+
+.details span{
+  display: inline-block;
+  background-color: var(--secondary-color);
+  padding: 8px 16px;
+  border-radius: 16px;
+  margin-right: 4px;
+  margin-top: 8px;
+  display: inline-block;
+  font-size: 12px;
+  font-weight: bold;
+  text-transform: uppercase;
 }

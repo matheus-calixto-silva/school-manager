@@ -134,3 +134,49 @@ header{
   font-weight: bold;
   text-transform: uppercase;
 }
+
+/*=== INPUT ===*/
+
+.details input{
+  width: 100%;
+  outline: none;
+  font-size: 18px;
+  font-weight: bold;
+  color: #555;
+}
+
+.details input::placeholder{
+  font-size: 16px;
+  font-weight: normal;
+}
+
+.details input[type="radio"]{
+  width: initial;
+  margin-right: 4px;
+  margin-top: 8px;
+}
+
+.details input[type="radio"]:nth-child(2){
+  margin-left: 24px;
+}
+
+.details select{
+  width: 70%;
+  height: 35px;
+  outline: none;
+  font-size: 18px;
+  font-weight: bold;
+  color: #555;
+  background: transparent;
+}
+
+.details button{
+  background-color: var(--primary-color);
+  color: #FFF;
+  width: 100%;
+  height: 35px;
+  margin-top: 16px;
+  font-size: 18px;
+  letter-spacing: 1px;
+  border-radius: 16px;
+}

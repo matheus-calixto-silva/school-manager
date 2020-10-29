@@ -1,0 +1,13 @@
+{
+  "teachers": [
+    {
+      "avatar_url": "https://google.com",
+      "name": "Matheus Calixto",
+      "birth": 843782400000,
+      "educational level": "Ensino Superior Completo",
+      "type_class": "Presencial",
+      "atuation_area": "Matemática, Fisica",
+      "created_at": 1603989188328
+    }
+  ]
+}

@@ -170,7 +170,7 @@ header{
   background: transparent;
 }
 
-.details button{
+.details button, a.button{
   background-color: var(--primary-color);
   color: #FFF;
   width: 100%;
@@ -179,4 +179,13 @@ header{
   font-size: 18px;
   letter-spacing: 1px;
   border-radius: 16px;
+}
+
+a.button{
+  display: block;
+  text-align: center;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

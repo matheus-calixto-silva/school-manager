@@ -1,24 +1,13 @@
 {
   "teachers": [
     {
-      "id": 1,
-      "avatar_url": "https://i.ytimg.com/vi/DvSo_r4SP_Q/maxresdefault.jpg",
-      "name": "Matheus Calixto",
+      "id": "1",
+      "avatar_url": "https://source.unsplash.com/collection/10553730/800x800",
+      "name": "Matheus Calixto Vicente da Silva",
       "birth": 843782400000,
-      "educational_level": "Ensino Superior Completo",
-      "type_class": "Presencial",
-      "atuation_area": "Matemática, Fisica",
-      "created_at": 1603989188328
-    },
-    {
-      "id": 2,
-      "avatar_url": "https://previews.123rf.com/images/sheftsoff/sheftsoff1801/sheftsoff180100300/92725813-smiling-woman-student-teacher-or-business-lady-holding-books-isolated-studio-portrait-of-business-pe.jpg",
-      "name": "Zeilva Silva Saturnino",
-      "birth": 25920000000,
       "educational_level": "Doutorado",
-      "type_class": "A distância",
-      "atuation_area": "Matemática, Fisica, Quimica",
-      "created_at": 1604101754046
+      "type_class": "Presencial",
+      "atuation_area": "Matemática, Fisica, Quimica"
     }
   ]
 }

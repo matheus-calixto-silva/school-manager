@@ -175,7 +175,7 @@ header{
   color: #FFF;
   width: 100%;
   height: 35px;
-  margin-top: 16px;
+  margin-top: 32px;
   font-size: 18px;
   letter-spacing: 1px;
   border-radius: 16px;
@@ -188,4 +188,9 @@ a.button{
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+#form-delete button[type="submit"]{
+  margin-top: 8px;
+  background-color: #FF6464;
 }

@@ -1,0 +1,115 @@
+<div class="item">
+  <div>Avatar URL</div>
+  <div>
+    <input type="url" name="avatar_url" placeholder="https://" value="{{student.avatar_url}}" required>
+  </div>
+</div>
+
+<div class="item">
+  <div>Nome</div>
+  <div>
+    <input type="text" name="name" value="{{student.name}}" required>
+  </div>
+</div>
+
+<div class="item">
+  <div>Email</div>
+  <div>
+    <input type="email" name="email" value="{{student.email}}" required>
+  </div>
+</div>
+
+<div class="item">
+  <div>Idade</div>
+  <div>
+    <input type="date" name="birth" value="{{student.birth}}" required>
+  </div>
+</div>
+
+<div class="item">
+  <div>Ano escolar</div>
+  <div>
+    <select name="school_year">
+
+    <optgroup label="Ensino Fundamental I">
+      <option value="1° ano"
+    {% if student.school_year == '1° ano'  %}
+    selected
+    {% endif %}>1° ano</option>  
+
+      <option value="2° ano"
+    {% if student.school_year == '2° ano'  %}
+    selected
+    {% endif %}>2° ano</option>
+
+      <option value="3° ano"
+    {% if student.school_year == '3° ano'  %}
+    selected
+    {% endif %}>3° ano</option>  
+      
+      <option value="4° ano"
+    {% if student.school_year == '4° ano'  %}
+    selected
+    {% endif %}>4° ano</option>  
+      
+      <option value="9° ano"
+    {% if student.school_year == '9° ano'  %}
+    selected
+    {% endif %}>4° ano</option>  
+      <option value="5° ano"
+    {% if student.school_year == '5° ano'  %}
+    selected
+    {% endif %}>5° ano</option>  
+    </optgroup>
+    
+      <optgroup label="Ensino Fundamental II">
+      <option value="6° ano"
+    {% if student.school_year == '6° ano'  %}
+    selected
+    {% endif %}>6° ano</option>
+
+      <option value="7° ano"
+    {% if student.school_year == '7° ano'  %}
+    selected
+    {% endif %}>7° ano</option>  
+      
+      <option value="8° ano"
+    {% if student.school_year == '8° ano'  %}
+    selected
+    {% endif %}>8° ano</option>  
+      
+      <option value="9° ano"
+    {% if student.school_year == '9° ano'  %}
+    selected
+    {% endif %}>9° ano</option>  
+    </optgroup>
+
+      <optgroup label="Ensino Médio">
+      <option value="1° ano"
+    {% if student.school_year == '1° ano'  %}
+    selected
+    {% endif %}>1° ano</option>  
+      
+      <option value="2° ano"
+    {% if student.school_year == '2° ano'  %}
+    selected
+    {% endif %}>2° ano</option>  
+      
+      <option value="3° ano"
+    {% if student.school_year == '3° ano'  %}
+    selected
+    {% endif %}>3° ano</option>  
+    </optgroup>
+
+    </select>
+  </div>
+</div>
+
+<div class="item">
+  <div>Carga horária</div>
+  <div>
+    <input type="number" name="hours" value="{{student.hours}}" min="1" required>
+  </div>
+</div>
+
+<button type="submit">Salvar</button>

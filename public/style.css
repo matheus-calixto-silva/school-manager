@@ -31,6 +31,11 @@ header{
   position: relative;
 }
 
+.links a.active{
+  font-weight: bold;
+  color: var(--primary-color);
+}
+
 .links a:hover{
   color: var(--primary-color);
 }
@@ -204,6 +209,7 @@ a.button{
 
 .table-container table{
   border-spacing: 0;
+  margin-top: 5%;
 }
 
 .table-container thead tr th{
@@ -241,7 +247,8 @@ tbody tr td:first-child span{
   border: 2px solid #FFF;
 }
 
-tbody tr td:last-child a{
+tbody tr td:last-child a,
+.register{
   background-color: var(--primary-color);
   padding: 8px 16px;
   text-decoration: none;
@@ -249,6 +256,10 @@ tbody tr td:last-child a{
   color: #FFF;
   font-size: #FFF;
   border-radius: 4px;
+}
+
+.register{
+  margin-left: 2%;
 }
 
 .table-container thead tr th:last-child,

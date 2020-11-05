@@ -1,10 +1,14 @@
 const fs = require('fs');
-const data = require('./data.json');
+const data = require('../data.json');
 
-const { age, date, degree } = require('./utils');
+const { age, date, degree } = require('../utils');
 
 exports.index = function(req, res){
   return res.render('teachers/index', { teachers: data.teachers });  
+}
+
+exports.create = function(req, res){
+  return res.render('teachers/create');
 }
 
 exports.show = function(req, res){
@@ -22,7 +26,7 @@ exports.show = function(req, res){
     ...foundTeacher,
     birth: age(foundTeacher.birth),
     atuation_area: foundTeacher.atuation_area.split(","),
-    created_at: new Intl.DateTimeFormat('pt-BR').format(foundTeacher.created_at),
+    created_at: date(foundTeacher.created_at).iso,
   }
   
   return res.render('teachers/show', { teacher });

@@ -15,32 +15,32 @@
 <div class="item">
   <div>Idade</div>
   <div>
-    <input type="date" name="birth" value="{{teacher.birth}}">
+    <input type="date" name="birth_date" value="{{teacher.birth_date}}">
   </div>
 </div>
 
 <div class="item">
   <div>Grau de escolaridade</div>
   <div>
-    <select name="educational_level">
+    <select name="education_level">
 
       <option value="Ensino Médio Completo"
-    {% if teacher.educational_level == 'Ensino Médio Completo'  %}
+    {% if teacher.education_level == 'Ensino Médio Completo'  %}
     selected
     {% endif %}>Ensino Médio Completo</option>
       
       <option value="Ensino Superior Completo"
-    {% if teacher.educational_level == 'Ensino Superior Completo'  %}
+    {% if teacher.education_level == 'Ensino Superior Completo'  %}
     selected
     {% endif %}>Ensino Superior Completo</option>
       
       <option value="Mestrado"
-    {% if teacher.educational_level == 'Mestrado'  %}
+    {% if teacher.education_level == 'Mestrado'  %}
     selected
     {% endif %}>Mestrado</option>
       
       <option value="Doutorado"
-    {% if teacher.educational_level == 'Doutorado'  %}
+    {% if teacher.education_level == 'Doutorado'  %}
     selected
     {% endif %}
     >Doutorado</option>
@@ -51,12 +51,12 @@
 <div class="item">
   <div>Tipo de aula</div>
   <div>
-    <input type="radio" name="type_class" value="Presencial" 
-    {% if teacher.type_class == 'Presencial'  %}
+    <input type="radio" name="class_type" value="Presencial" 
+    {% if teacher.class_type == 'Presencial'  %}
     checked="checked"
     {% endif %}>Presencial
-    <input type="radio" name="type_class" value="A distância"
-    {% if teacher.type_class == 'A distância'  %}
+    <input type="radio" name="class_type" value="A distância"
+    {% if teacher.class_type == 'A distância'  %}
     checked="checked"
     {% endif %}
     >A distância
@@ -66,7 +66,7 @@
 <div class="item">
   <div>Área de atuação</div>
   <div>
-    <input type="text" name="atuation_area" placeholder="Separe as matérias por virgula" value="{{teacher.atuation_area}}">
+    <input type="text" name="subjects_taught" placeholder="Separe as matérias por virgula" value="{{teacher.subjects_taught}}">
   </div>
 </div>
 

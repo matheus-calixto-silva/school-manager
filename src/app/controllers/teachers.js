@@ -1,11 +1,14 @@
-const { age, date, degree } = require('../../lib/utils');
+const { age, date } = require('../../lib/utils');
+const Teacher = require('../models/teacher');
 
 module.exports = {
   index(req, res){
-    return res.render('students/index');  
+    Teacher.all(function(teachers){
+      return res.render('teachers/index', { teachers });  
+    });
   },
   create(req, res){
-    return res.render('students/create');
+    return res.render('teachers/create');
   },
   post(req, res){
     const keys = Object.keys(req.body)
@@ -16,13 +19,28 @@ module.exports = {
       }
     }
 
-    return;
+    Teacher.create(req.body, function(teacher){
+      return res.redirect(`/teachers/${teacher.id}`);
+    });
   },
   show(req, res){
-    return
+    Teacher.find(req.params.id, function(teacher){
+      if(!teacher) { return res.send('Professor não encontrado') }
+
+      teacher.birth_date = age(teacher.birth_date);
+      teacher.subjects_taught = teacher.subjects_taught.split(',');
+      teacher.created_at = date(teacher.created_at).format;
+
+      return res.render('teachers/show', {teacher} );
+    });
   },
   edit(req, res){
-    return
+    Teacher.find(req.params.id, function(teacher){
+      if(!teacher) {return res.send('Professor não encontrado') }
+      
+      teacher.birth_date = date(teacher.birth_date).iso;
+      return res.render('teachers/edit', { teacher });
+    });
   },
   put(req, res){
     const keys = Object.keys(req.body)
@@ -33,9 +51,14 @@ module.exports = {
       }
     }
 
-    return;
+    Teacher.update(req.body, function(){
+      return res.redirect(`/teachers/${req.body.id}`);
+    });
+
   },
   delete(req, res){
-    return
+    Teacher.delete(req.body.id, function(){
+      return res.redirect(`/teachers`);
+    });
   },
 }

@@ -1,8 +1,11 @@
 const { age, date, degree } = require('../../lib/utils');
+const Student = require('../models/student');
 
 module.exports = {
   index(req, res){
-    return res.render('students/index');  
+    Student.all(function(students){
+      return res.render('students/index', { students } );
+    });
   },
   create(req, res){
     return res.render('students/create');
@@ -16,13 +19,25 @@ module.exports = {
       }
     }
 
-    return;
+    Student.create(req.body, function(student){
+      return res.redirect(`/students/${student.id}`);
+    })
   },
   show(req, res){
-    return
+    Student.find(req.params.id, function(student){
+      if(!student) { return res.send('Aluno não encontrado') }
+      student.birth_date = date(student.birth_date).format;
+
+      return res.render('students/show', { student });
+    });
   },
   edit(req, res){
-    return
+    Student.find(req.params.id, function(student){
+      if(!student) {return res.send('Aluno não encontrado') }
+      
+      student.birth_date = date(student.birth_date).iso;
+      return res.render('students/edit', { student });
+    });
   },
   put(req, res){
     const keys = Object.keys(req.body)
@@ -33,9 +48,13 @@ module.exports = {
       }
     }
 
-    return;
+    Student.update(req.body, function(){
+      return res.redirect(`/students/${req.body.id}`);
+    });  
   },
   delete(req, res){
-    return
+    Student.delete(req.body.id, function(){
+      return res.redirect(`/students`);
+    });
   },
 }

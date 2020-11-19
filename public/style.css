@@ -248,21 +248,52 @@ tbody tr td:first-child span{
 }
 
 tbody tr td:last-child a,
-.register{
+.register,
+.table-container .header button {
   background-color: var(--primary-color);
   padding: 8px 16px;
   text-decoration: none;
   text-transform: uppercase;
   color: #FFF;
-  font-size: #FFF;
+  font-size: 16px;
   border-radius: 4px;
 }
 
-.register{
+/* .register{
   margin-left: 2%;
-}
+} */
 
 .table-container thead tr th:last-child,
 td:last-child{
+  text-align: center;
+}
+
+/*=== FILTERS ===*/
+
+.table-container .header{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+}
+
+
+.table-container .header form{
+  display: grid;
+  grid-template-columns: 1fr 110px;
+  gap: 8px;
+  align-items: center;
+  justify-self: flex-end;
+}
+
+.table-container .header input{
+  font-size: 16px;
+  height: 100%;
+  padding: 4px 8px;
+  border: 1px solid #D9D9D9;
+  outline: none;
+}
+
+.table-container .header a{
+  width: 110px;
   text-align: center;
 }

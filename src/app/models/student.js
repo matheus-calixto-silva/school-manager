@@ -16,8 +16,9 @@ module.exports = {
         email,
         birth_date,
         school_year,
-        class_hours
-      ) VALUES ($1, $2, $3, $4, $5, $6)
+        class_hours,
+        teacher_id
+      ) VALUES ($1, $2, $3, $4, $5, $6, $7)
       RETURNING id
     `
     const values = [
@@ -26,19 +27,21 @@ module.exports = {
       data.email,
       data.birth_date,
       data.school_year,
-      data.class_hours
+      data.class_hours,
+      data.teacher
     ];
 
     db.query(query, values, function(err, results){
-      if(err){ throw `Database error!${err}`}
+      if(err){ throw `Database error!${err}` }
       callback(results.rows[0]);
     });
   },
   find(id, callback){
     db.query(`
-    SELECT * 
+    SELECT students.*, teachers.name AS teacher_name
     FROM students 
-    WHERE id = $1`, [id], function(err, results){
+    LEFT JOIN teachers ON (students.teacher_id = teachers.id)
+    WHERE students.id = $1`, [id], function(err, results){
       if(err){ throw `Database Error! ${err}` }
       callback(results.rows[0]);
     });
@@ -51,8 +54,9 @@ module.exports = {
     email = ($3),
     birth_date = ($4),
     school_year = ($5),
-    class_hours= ($6)
-    WHERE id = $7
+    class_hours= ($6),
+    teacher_id= ($7)
+    WHERE id = $8
   `
   const values = [
     data.avatar_url,
@@ -61,6 +65,7 @@ module.exports = {
     date(data.birth_date).iso,
     data.school_year,
     data.class_hours,
+    data.teacher,
     data.id
   ];
 
@@ -75,4 +80,10 @@ module.exports = {
       return callback();
     });
   },
+  teachersOptions(callback){
+    db.query(`SELECT name, id FROM teachers`, function(err, results){
+      if(err) { throw `Database error! ${err}` }
+      callback(results.rows);
+    });
+  }
 }

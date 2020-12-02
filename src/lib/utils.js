@@ -3,8 +3,8 @@ module.exports = {
     const today = new Date();
     const birthDate = new Date(timestamp);
 
-    const age = today.getUTCFullYear() - birthDate.getUTCFullYear();
-    const month = today.getUTCMonth() - birthDate.getUTCMonth();
+    let age = today.getUTCFullYear() - birthDate.getUTCFullYear();
+    let month = today.getUTCMonth() - birthDate.getUTCMonth();
 
     today.getUTCDate();
     birthDate.getUTCDate();
